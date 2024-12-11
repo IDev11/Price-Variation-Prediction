@@ -1,4 +1,4 @@
-# README: Linear Regression Analysis for Price Variation
+# Linear Regression Analysis for Price Variation
 
 ## Project Overview
 This project involves building a linear regression model to predict the `PriceVariation` of stock data based on several features. The dataset was preprocessed, normalized, and split into training and testing sets. Additionally, cross-validation was performed to validate the model's robustness.
