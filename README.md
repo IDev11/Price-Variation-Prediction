@@ -13,14 +13,12 @@ This project demonstrates a stock price prediction model using a linear regressi
 Before running the scripts, make sure you have the following R packages installed:
 
 - `dplyr` - For data manipulation
-- `lubridate` - For working with date objects
 - `caret` - For training the linear regression model and performing cross-validation
 
 You can install these packages using the following commands if they are not already installed:
 
 ```r
 install.packages("dplyr")
-install.packages("lubridate")
 install.packages("caret")
 ```
 
@@ -44,8 +42,9 @@ The CSV file is expected to have the following columns:
 1. **Load Data**: Load the stock price data from the `NASDAQ.csv` file.
 2. **Create `PriceVariation` Column**: Calculate the difference between the opening and closing prices and store it in a new column called `PriceVariation`.
 3. **Remove Unnecessary Columns**: Drop the `Open`, `Close`, and `Date` columns, which are no longer needed for modeling.
-4. **Normalize Numeric Columns**: Normalize the selected numeric columns (High, Low, Adj.Close, Volume, and PriceVariation) using z-score standardization (mean = 0, standard deviation = 1).
-5. **Split Data**: Split the data into training (80%) and testing (20%) sets for model evaluation.
+4. **Remove Rows with NA or 0**: Remove rows where any column contains `NA` or `0`.
+5. **Normalize Numeric Columns**: Normalize the selected numeric columns (High, Low, Adj.Close, Volume) using z-score standardization (mean = 0, standard deviation = 1).
+6. **Split Data**: Split the data into training (80%) and testing (20%) sets for model evaluation.
 
 ### Example:
 ```r
@@ -102,4 +101,3 @@ source("linear_regression.R")
 2. **Evaluation Metrics**: The MAE, MSE, and R-squared values will be printed in the console to evaluate the model's performance.
 
 3. **Cross-validation Results**: The results from the 10-fold cross-validation will be printed, showing the model’s average performance across different splits of the data.
-
